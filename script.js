@@ -122,7 +122,7 @@ const validateInputs = () => {
     }
 
     if (emailValue === "") {
-        setError(email, "Du behöver ange din email adress")
+        setError(email, "Du behöver ange en email adress")
         correctEmail = false;
     } else if (!isValidEmail(emailValue)) {
         setError(email, "Du behöver ange en giltig email adress")

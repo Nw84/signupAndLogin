@@ -476,6 +476,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 0.5rem;
 }
 
+.ml-5 {
+  margin-left: 1.25rem;
+}
+
 .ml-2 {
   margin-left: 0.5rem;
 }
@@ -498,6 +502,35 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-full {
   width: 100%;
+}
+
+@-webkit-keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-down {
+  -webkit-animation: fade-in-down 2s ease-out;
+          animation: fade-in-down 2s ease-out;
 }
 
 .items-center {
@@ -592,6 +625,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(187 247 208 / var(--tw-text-opacity));
 }
 
+.accent-green-800 {
+  accent-color: #166534;
+}
+
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -610,7 +647,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .input-control.success input {
-  color: #00ff00;
+  color: #00cc44;
 }
 
 .input-control.error input {
@@ -619,7 +656,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .input-control .error {
   color: #ff3860;
-  font-size: 9px;
+  font-size: 11px;
+  font-weight: bold;
   height: 13px;
 }
 
