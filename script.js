@@ -107,7 +107,7 @@ const validateInputs = () => {
         submitButton.classList.add("disabledButton");
     }
 
-    return realNameValue + " " + usernameValue + " " + emailValue + " " + passwordValue;
+    return realNameValue + usernameValue + emailValue + passwordValue;
 }
 
 
