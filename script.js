@@ -4,6 +4,7 @@ const realName = document.getElementById("realName");
 const username = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
+const checkbox = document.getElementById("agree")
 
 let correctName = false;
 let correctUsername = false;
@@ -13,17 +14,12 @@ let correctPassword = false;
 submitButton.disabled = true;
 submitButton.classList.add("disabledButton");
 
+checkbox.addEventListener("click", e => {
+    validateInputs();
+})
+
 form.addEventListener("keyup", e => {
     validateInputs();
-
-    if (correctName === true && correctUsername === true && correctEmail === true && correctPassword === true) {
-        submitButton.disabled = false;
-        submitButton.classList.remove("disabledButton");
-        console.log("ost")
-    } else {
-        submitButton.disabled = true;
-        submitButton.classList.add("disabledButton");
-    }
 })
 
 submitButton.addEventListener("click", e => {
@@ -100,6 +96,15 @@ const validateInputs = () => {
     } else {
         setSuccess(password)
         correctPassword = true;
+    }
+
+    if (correctName === true && correctUsername === true && correctEmail === true && correctPassword === true && checkbox.checked) {
+        submitButton.disabled = false;
+        submitButton.classList.remove("disabledButton");
+        console.log("ost")
+    } else {
+        submitButton.disabled = true;
+        submitButton.classList.add("disabledButton");
     }
 
     return realNameValue + " " + usernameValue + " " + emailValue + " " + passwordValue;
