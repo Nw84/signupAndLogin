@@ -507,7 +507,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 @-webkit-keyframes fade-in-down {
   0% {
     opacity: 0;
-    transform: translateY(-100px);
+    transform: translateY(-150px);
   }
 
   100% {
@@ -519,7 +519,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 @keyframes fade-in-down {
   0% {
     opacity: 0;
-    transform: translateY(-100px);
+    transform: translateY(-150px);
   }
 
   100% {
@@ -529,8 +529,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .animate-fade-in-down {
-  -webkit-animation: fade-in-down 2s ease-out;
-          animation: fade-in-down 2s ease-out;
+  -webkit-animation: fade-in-down 1s ease-out;
+          animation: fade-in-down 1s ease-out;
 }
 
 .items-center {
