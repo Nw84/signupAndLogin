@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input-control.success input {
+    color: #00ff00;
+}
+
+.input-control.error input {
+    color: #ff0000; 
+}
+
+.input-control .error {
+    color: #ff3860; 
+    font-size: 9px;
+    height: 13px;
+}
+
+.activeButton {
+    background-color: darkgreen;
+}

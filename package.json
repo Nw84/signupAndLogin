@@ -1,0 +1,25 @@
+{
+  "name": "signupAndLogin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "tailwindcss": "^3.0.23"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "tailwindcss build main.css -o css/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nw84/signupAndLogin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nw84/signupAndLogin/issues"
+  },
+  "homepage": "https://github.com/Nw84/signupAndLogin#readme"
+}
