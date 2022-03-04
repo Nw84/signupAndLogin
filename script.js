@@ -5,6 +5,7 @@ const username = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const checkbox = document.getElementById("agree")
+const strengthbar = document.getElementById("strength")
 
 let correctName = false;
 let correctUsername = false;
@@ -21,6 +22,44 @@ checkbox.addEventListener("click", e => {
 form.addEventListener("keyup", e => {
     validateInputs();
 })
+
+password.addEventListener("keyup", e => {
+    checkStrength(password.value)
+})
+
+const checkStrength = (password) => {
+    let strength = 0;
+
+    if (password.match(/[a-z]+/)) {
+        strength += 1;
+    }
+    if (password.match(/[0-9]+/)) {
+        strength += 1;
+    }
+    if (password.match(/[A-Z]+/)) {
+        strength += 1;
+    }
+    if (password.length > 5) {
+        strength += 1;
+    }
+    switch (strength) {
+        case 0:
+            strengthbar.value = 0;
+            break
+        case 1:
+            strengthbar.value = 25;
+            break
+        case 2:
+            strengthbar.value = 50;
+            break
+        case 3:
+            strengthbar.value = 75;
+            break
+        case 4:
+            strengthbar.value = 100;
+            break
+    }
+}
 
 submitButton.addEventListener("click", e => {
     let data = validateInputs();
@@ -60,27 +99,33 @@ const validateInputs = () => {
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
 
-    if (usernameValue === "") {
-        setError(username, "Username is required")
-        correctUsername = false;
-    } else {
-        setSuccess(username);
-        correctUsername = true;
-    }
-
     if (realNameValue === "") {
-        setError(realName, "Full name is required")
+        setError(realName, "Du behöver ange ditt fullständiga namn")
+        correctName = false;
+    } else if (realNameValue.length < 4) {
+        setError(realName, "Du behöver ange både förnamn och efternamn")
         correctName = false;
     } else {
         setSuccess(realName);
         correctName = true;
     }
 
+    if (usernameValue === "") {
+        setError(username, "Ange ett önskat användarnamn")
+        correctUsername = false;
+    } else if (usernameValue.length < 5) {
+        setError(username, "Ditt önskade användarnamn måste vara minst 5 tecken långt")
+        correctName = false;
+    } else {
+        setSuccess(username);
+        correctUsername = true;
+    }
+
     if (emailValue === "") {
-        setError(email, "Email is required")
+        setError(email, "Du behöver ange din email adress")
         correctEmail = false;
     } else if (!isValidEmail(emailValue)) {
-        setError(email, "Provide a valid email address")
+        setError(email, "Du behöver ange en giltig email adress")
         correctEmail = false;
     } else {
         setSuccess(email);
@@ -88,10 +133,10 @@ const validateInputs = () => {
     }
 
     if (passwordValue === "") {
-        setError(password, "password is required");
+        setError(password, "Ange ett önskat lösenord");
         correctPassword = false;
     } else if (!isStrongPassword(passwordValue)) {
-        setError(password, "Password must be between 6 to 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter")
+        setError(password, "Ditt lösenord måste vara mellan 6 - 20 tecken och innehålla minst en siffra, en stor och en liten bokstav")
         correctPassword = false;
     } else {
         setSuccess(password)
