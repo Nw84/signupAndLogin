@@ -16,6 +16,6 @@
     height: 13px;
 }
 
-.activeButton {
-    background-color: darkgreen;
+.disabledButton {
+    background-color: gray;
 }

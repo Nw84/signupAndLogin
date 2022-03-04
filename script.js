@@ -11,25 +11,23 @@ let correctEmail = false;
 let correctPassword = false;
 
 submitButton.disabled = true;
+submitButton.classList.add("disabledButton");
 
-form.addEventListener("keydown", e => {
+form.addEventListener("keyup", e => {
+    validateInputs();
+
     if (correctName === true && correctUsername === true && correctEmail === true && correctPassword === true) {
         submitButton.disabled = false;
-        submitButton.classList.remove("activeButton");
+        submitButton.classList.remove("disabledButton");
         console.log("ost")
     } else {
         submitButton.disabled = true;
-        submitButton.classList.remove("activeButton");
+        submitButton.classList.add("disabledButton");
     }
-
-    validateInputs();
 })
 
 submitButton.addEventListener("click", e => {
-    e.preventDefault();
-
     let data = validateInputs();
-    console.log(data)
 })
 
 const setError = (element, message) => {
@@ -68,6 +66,7 @@ const validateInputs = () => {
 
     if (usernameValue === "") {
         setError(username, "Username is required")
+        correctUsername = false;
     } else {
         setSuccess(username);
         correctUsername = true;
@@ -75,6 +74,7 @@ const validateInputs = () => {
 
     if (realNameValue === "") {
         setError(realName, "Full name is required")
+        correctName = false;
     } else {
         setSuccess(realName);
         correctName = true;
@@ -82,8 +82,10 @@ const validateInputs = () => {
 
     if (emailValue === "") {
         setError(email, "Email is required")
+        correctEmail = false;
     } else if (!isValidEmail(emailValue)) {
         setError(email, "Provide a valid email address")
+        correctEmail = false;
     } else {
         setSuccess(email);
         correctEmail = true;
@@ -91,8 +93,10 @@ const validateInputs = () => {
 
     if (passwordValue === "") {
         setError(password, "password is required");
+        correctPassword = false;
     } else if (!isStrongPassword(passwordValue)) {
         setError(password, "Password must be between 6 to 20 characters which contain at least one numeric digit, one uppercase and one lowercase letter")
+        correctPassword = false;
     } else {
         setSuccess(password)
         correctPassword = true;

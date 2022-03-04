@@ -623,11 +623,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 13px;
 }
 
-.activeButton {
-  background-color: darkgreen;
-}
-
-.hover\:bg-green-700:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(21 128 61 / var(--tw-bg-opacity));
+.disabledButton {
+  background-color: gray;
 }
