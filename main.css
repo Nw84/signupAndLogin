@@ -4,10 +4,12 @@
 
 .input-control.success input {
     color: #00cc44;
+    font-weight: bold;
 }
 
 .input-control.error input {
     color: #ff0000; 
+    font-weight: bold;
 }
 
 .input-control .error {
